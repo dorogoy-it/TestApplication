@@ -2,4 +2,5 @@
     <string name="app_name">Pizza App</string>
     <string name="buttonSignIn">Войти</string>
     <string name="buttonRegistry">Зарегистрироваться</string>
+    <string name="buttonOrder">Заказать</string>
 </resources>

@@ -1,13 +1,17 @@
 package com.example.testapplication;
 
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -22,18 +26,20 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button_sign_in, button_registry;
+    Button button_sign_in, button_registry, button_order;
     FirebaseAuth auth;
     FirebaseDatabase db;
     DatabaseReference users;
     RelativeLayout root;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         button_sign_in = findViewById(R.id.buttonSignIn);
         button_registry = findViewById(R.id.buttonRegistry);
-
+        button_order = findViewById(R.id.buttonOrder);
         root = findViewById(R.id.root_element);
 
         auth = FirebaseAuth.getInstance();
@@ -84,13 +90,13 @@ public class MainActivity extends AppCompatActivity {
         dialog.setPositiveButton("Войти", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                if(TextUtils.isEmpty(email.getText().toString())) {
+                if (TextUtils.isEmpty(email.getText().toString())) {
                     Snackbar.make(root, "Введите вашу почту", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
 
 
-                if(password.getText().toString().length() < 6) {
+                if (password.getText().toString().length() < 6) {
                     Snackbar.make(root, "Введите пароль, который больше 6 символов", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
@@ -109,9 +115,14 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
             }
-        });
 
-        dialog.show();
+
+
+
+
+                        });
+
+                dialog.show();
     }
 
 

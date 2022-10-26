@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/black"
     android:layout_height="match_parent"
     tools:context=".PizzaMenuActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/buttonOrder"
+        android:layout_width="128dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/checkBox3"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="135dp"
+        android:layout_marginBottom="25dp"
+        android:text="Заказать" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="72dp"
+        android:layout_height="21dp"
+        android:layout_below="@id/imageView1"
+        android:layout_toEndOf="@id/imageView1" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="77dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="66dp"
+        android:layout_height="16dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_toEndOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="317dp"
+        android:layout_height="157dp"
+        app:srcCompat="@drawable/pizza_3" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="317dp"
+        android:layout_height="157dp"
+        android:layout_below="@+id/checkBox1"
+        app:srcCompat="@drawable/pizza_2" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="317dp"
+        android:layout_height="157dp"
+        android:layout_below="@+id/checkBox2"
+        app:srcCompat="@drawable/pizza_1" />
+</RelativeLayout>
